@@ -1,5 +1,5 @@
 #!/bin/bash
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]:-$0}")")"
 
 CONFIG_FILE="$(mktemp -t mosquitto.conf)"
 trap 'rm -f "$CONFIG_FILE"' EXIT
